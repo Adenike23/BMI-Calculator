@@ -11,6 +11,7 @@ const yourStatus = document.querySelector('.yourStatus')
 submitButton.addEventListener('click', function() {
     if(weightValidate.value.length <= 0 || heighttValidate.value.length <= 0) {
         errorMessage.textContent = 'Please fill in all fields'
+        answer.style.display= 'none'
         setTimeout(() => {
             errorMessage.style.display = 'none'
         }, 4000);
@@ -25,33 +26,24 @@ submitButton.addEventListener('click', function() {
     const cal = weightValidate.value/(heightInM * heightInM)
     const BMI = cal.toPrecision(4);
     answer.textContent = `${BMI}`
-        // switch (true) {
-        //     case BMI < 18.5: 
-        //     yourStatus.textContent = 'You are Underweight';
-        //     break;
-        //     case BMI >= 18.5 || BMI <= 24.9: 
-        //     yourStatus.textContent = 'You are Healty';
-        //     break;
-        //     case BMI >= 25 || BMI < 30: 
-        //     yourStatus.textContent = 'You are Overweight';
-        //     break;
-        //     case BMI >= 30: 
-        //     yourStatus.textContent = 'You are Obsese';
-        //     break;
-        // }
-        if (BMI < 18.5) {
+        switch (true) {
+            case BMI < 18.5: 
             yourStatus.textContent = 'You are Underweight';
-        } 
-        if (BMI >= 18.5 || BMI <= 24.9) {
-            yourStatus.textContent = 'You are Healty' 
-        } 
-        if (BMI >= 25 || BMI <= 29.9) {
-            yourStatus.textContent = 'You are Overweight'
-        } 
-        if (BMI >= 30) {
-            yourStatus.textContent = 'You are Obsese'
+            break;
+            case BMI >= 18.5 && BMI <= 24.9: 
+            yourStatus.textContent = 'You are Healty';
+            break;
+            case BMI >= 25 && BMI < 30: 
+            yourStatus.textContent = 'You are Overweight';
+            break;
+            case BMI >= 30: 
+            yourStatus.textContent = 'You are Obsese';
+            break;
         }
 })
 document.querySelector('.reload').addEventListener('click', function() {
-    location.href = '/index.html'
+    weightValidate.value = '';
+    heighttValidate.value = '';
+    answer.style.display = 'none';
+    yourStatus.style.display = 'none'
 })
