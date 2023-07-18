@@ -9,8 +9,9 @@ body{
 }
 main{
     background-color: white;
-    margin: 1rem auto;
-    width: 27%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 2rem;
     border-radius: 7px;
     box-shadow: 0 0 30px rgb(85, 85, 134);
@@ -31,13 +32,13 @@ main > p{
     padding: 6px 0;
 }
 .boxInput{
-    margin: 2.2rem auto;
+    margin: 1rem auto;
 }
 input{
     all: unset;
     display: block;
     margin-top: 12px;
-    width: 90%;
+    width: 20rem;
     border-radius: 5px;
     border: 1px solid rgba(174, 174, 174, 0.368);
     padding: 12px;
@@ -62,35 +63,13 @@ input{
 main h3{
     margin-top: 1rem;
 }
-@media screen and (max-width: 1400px) {
-    main{
-        margin:  1.5rem 0;
+@media screen and (max-width: 480px) {
+    input{
+        width: 18rem;
     }
 }
-@media screen and (max-width: 1110px) {
-    main{
-        width: 32%;
-       
-    }
-}
-@media screen and (max-width: 992px) {
-    main{
-        width: 39%;
-    }
-}
-@media screen and (max-width: 768px) {
-    main{
-        width: 47%;
-    }
-}
-@media screen and (max-width: 600px) {
-    main{
-        width: 55%;
-    }
-}
-@media screen and (max-width: 576px) {
-    main{
-        width: 70%;
-        
+@media screen and (max-width: 375px) {
+    input{
+        width: 13rem;
     }
 }
