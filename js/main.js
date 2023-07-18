@@ -16,20 +16,39 @@ submitButton.addEventListener('click', function() {
         }, 4000);
     } else if (!Number(weightValidate.value) || !Number(heighttValidate.value)) {
         errorMessage.textContent = 'All fields must be numbers'
+        setTimeout(() => {
+            errorMessage.style.display = 'none'
+        }, 3000);
     }     
 
     const heightInM = (heighttValidate.value/100);
     const cal = weightValidate.value/(heightInM * heightInM)
     const BMI = cal.toPrecision(4);
     answer.textContent = `${BMI}`
-        switch (true) {
-            case BMI < 18.5: 
-            yourStatus.textContent = 'You are Underweight'
-            case BMI >= 18.5 || BMI <= 24.9: 
-            yourStatus.textContent = 'You are Healty'
-            case BMI >= 25 || BMI < 30: 
+        // switch (true) {
+        //     case BMI < 18.5: 
+        //     yourStatus.textContent = 'You are Underweight';
+        //     break;
+        //     case BMI >= 18.5 || BMI <= 24.9: 
+        //     yourStatus.textContent = 'You are Healty';
+        //     break;
+        //     case BMI >= 25 || BMI < 30: 
+        //     yourStatus.textContent = 'You are Overweight';
+        //     break;
+        //     case BMI >= 30: 
+        //     yourStatus.textContent = 'You are Obsese';
+        //     break;
+        // }
+        if (BMI < 18.5) {
+            yourStatus.textContent = 'You are Underweight';
+        } 
+        if (BMI >= 18.5 || BMI <= 24.9) {
+            yourStatus.textContent = 'You are Healty' 
+        } 
+        if (BMI >= 25 || BMI <= 29.9) {
             yourStatus.textContent = 'You are Overweight'
-            case BMI >= 30: 
+        } 
+        if (BMI >= 30) {
             yourStatus.textContent = 'You are Obsese'
         }
 })
