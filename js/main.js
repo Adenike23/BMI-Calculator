@@ -13,12 +13,12 @@ submitButton.addEventListener('click', function() {
         errorMessage.textContent = 'Please fill in all fields'
         answer.style.display= 'none'
         setTimeout(() => {
-            errorMessage.style.display = 'none'
+            errorMessage.textContent = ''
         }, 4000);
     } else if (!Number(weightValidate.value) || !Number(heighttValidate.value)) {
         errorMessage.textContent = 'All fields must be numbers'
         setTimeout(() => {
-            errorMessage.style.display = 'none'
+            errorMessage.textContent = ''
         }, 3000);
     }     
 
