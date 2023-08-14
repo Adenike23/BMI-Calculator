@@ -44,6 +44,6 @@ submitButton.addEventListener('click', function() {
 document.querySelector('.reload').addEventListener('click', function() {
     weightValidate.value = '';
     heighttValidate.value = '';
-    answer.style.display = 'none';
-    yourStatus.style.display = 'none'
+    answer.textContent = '';
+    yourStatus.textContent = ''
 })
